@@ -13,7 +13,8 @@ class GoogleCalendar {
     }
 
     async authenticate() {
-        const { client_secret, client_id, redirect_uris } = require('./google-calendar-client-secret.json');
+        const credentials = require('./google-calendar-client-secret.json');
+        const { client_secret, client_id, redirect_uris } = credentials.installed;
         const oAuth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0]);
 
         let token;
